@@ -1,0 +1,11 @@
+baseURL = "https://example.org/"
+languageCode = "en-us"
+title = "A Place on the Web"
+
+[params]
+  description = "A simple, thoughtful corner of the internet."
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = false
