@@ -34,6 +34,14 @@
   translation: "A happier computer\nis a few steps away."
 - id: servicesIntro
   translation: "From everyday slowdowns to hardware upgrades, get practical help for the tech problems interrupting your day."
+- id: localKicker
+  translation: "A SMALL REPAIR SHOP IN VARNA"
+- id: localHeading
+  translation: "Tech can be complicated. Explanations shouldn’t be."
+- id: localDescriptionOne
+  translation: "Whether it’s a laptop, home computer, or work machine, we start with what you’ve noticed—you don’t need to speak in megahertz."
+- id: localDescriptionTwo
+  translation: "After diagnosis, you’ll get a clear explanation and the price before repair. If there are a few sensible options, we’ll talk them through before you choose."
 - id: heroImageAlt
   translation: "Hands repairing an open laptop"
 - id: heroImageCaption

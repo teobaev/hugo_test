@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ .Description | default site.Params.description }}">
-    <meta name="theme-color" content="#101715">
+    <meta name="theme-color" content="#f4f6fa">
     <title>{{ .Title }} · {{ site.Title }}</title>
     {{ with resources.Get "css/main.css" }}
       {{ $style := . | minify | fingerprint }}
