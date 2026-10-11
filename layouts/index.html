@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ .Description | default site.Params.description }}">
-    <meta name="theme-color" content="#f6f4ef">
+    <meta name="theme-color" content="#f7f8f6">
     <title>{{ .Title }} · {{ site.Title }}</title>
     {{ with resources.Get "css/main.css" }}
       {{ $style := . | minify | fingerprint }}
@@ -12,47 +12,103 @@
     {{ end }}
   </head>
   <body>
-    <main class="page-shell">
-      <nav class="topbar" aria-label="Main navigation">
-        <a class="wordmark" href="{{ site.Home.RelPermalink }}" aria-label="{{ site.Title }} home">
-          <span class="wordmark-mark" aria-hidden="true">✳</span>
-          <span>{{ site.Title }}</span>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="{{ site.Home.RelPermalink }}" aria-label="{{ site.Title }} home">
+          <span class="brand-icon" aria-hidden="true"><span></span></span>
+          <span class="brand-name"><strong>LOCAL</strong><small>PC REPAIR</small></span>
         </a>
-        <a class="top-link" href="#contact">Get in touch <span aria-hidden="true">↗</span></a>
-      </nav>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="#services">Services</a>
+          <a href="#how-it-works">How it works</a>
+          <a class="nav-cta" href="#contact">Get in touch <span aria-hidden="true">↗</span></a>
+        </nav>
+      </header>
 
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>{{ .Params.eyebrow }}</p>
-          <h1 id="hero-title">{{ .Params.headline | default .Title }}</h1>
-          <p class="intro">{{ .Params.intro | default .Description }}</p>
-          <a class="button" href="#services">See what we fix <span aria-hidden="true">↓</span></a>
-        </div>
-        <div class="hero-art" aria-hidden="true">
-          <div class="sun"></div>
-          <div class="orbit orbit-one"></div>
-          <div class="orbit orbit-two"></div>
-          <div class="art-caption"><span>DESKTOPS &amp; LAPTOPS</span><span>REPAIRS &amp; UPGRADES</span></div>
-        </div>
-        <span class="hero-index" aria-hidden="true">01 / 01</span>
-      </section>
+      <main id="main-content">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>{{ .Params.eyebrow }}</p>
+            <h1 id="hero-title">{{ .Params.headline | default .Title }}</h1>
+            <p class="hero-intro">{{ .Params.intro | default .Description }}</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#contact">{{ .Params.cta | default "Get repair help" }} <span aria-hidden="true">↗</span></a>
+              <a class="text-link" href="#services">Explore services <span aria-hidden="true">↓</span></a>
+            </div>
+            <p class="hero-note"><span aria-hidden="true">✳</span> Clear advice. No tech jargon.</p>
+          </div>
 
-      <section class="about" id="about" aria-labelledby="about-title">
-        <div class="section-label"><span>01</span><span>PC REPAIR</span></div>
-        <div class="about-copy">
-          <h2 id="about-title">Practical repairs. Plain-English advice.</h2>
-          <div class="body-copy">{{ .Content }}</div>
-        </div>
-        <div class="about-aside">
-          <span class="aside-star" aria-hidden="true">✳</span>
-          <p>Friendly local service<br>without the jargon.</p>
-        </div>
-      </section>
+          <figure class="hero-photo">
+            {{ with resources.Get "images/laptop-repair.jpg" }}
+              {{ $heroImage := . | fingerprint }}
+              <img src="{{ $heroImage.RelPermalink }}" alt="Hands-on repair of an open laptop" fetchpriority="high">
+            {{ end }}
+            <figcaption class="photo-label"><span>Careful work, clear answers</span><span>01 / 02</span></figcaption>
+          </figure>
+        </section>
 
-      <footer class="footer">
+        <section class="promise-strip" aria-label="Repair shop services">
+          <p><span aria-hidden="true">✓</span> Desktop &amp; laptop repair</p>
+          <p><span aria-hidden="true">✓</span> Troubleshooting &amp; upgrades</p>
+          <p><span aria-hidden="true">✓</span> Friendly, straightforward help</p>
+        </section>
+
+        <section class="services section-block" id="services" aria-labelledby="services-title">
+          <div class="section-heading">
+            <p class="section-kicker">HOW WE CAN HELP</p>
+            <h2 id="services-title">Your computer, <span>back on track.</span></h2>
+            <p>From everyday slowdowns to hardware upgrades, get practical help for the problems that interrupt your day.</p>
+          </div>
+          <div class="service-grid">
+            {{ range $index, $service := .Params.services }}
+              <article class="service-card">
+                <span class="service-number">0{{ add $index 1 }}</span>
+                <h3>{{ $service.title }}</h3>
+                <p>{{ $service.description }}</p>
+              </article>
+            {{ end }}
+          </div>
+        </section>
+
+        <section class="feature" id="how-it-works" aria-labelledby="feature-title">
+          <figure class="feature-photo">
+            {{ with resources.Get "images/pc-upgrade.jpg" }}
+              {{ $detailImage := . | fingerprint }}
+              <img src="{{ $detailImage.RelPermalink }}" alt="A computer processor being fitted to a motherboard" loading="lazy">
+            {{ end }}
+            <figcaption class="photo-credit">Photos via <a href="https://unsplash.com/photos/a-person-working-on-a-laptop-with-a-screwdriver-Qkq3yuy0noE">Unsplash</a> and <a href="https://unsplash.com/photos/hand-installing-a-computer-processor-onto-a-motherboard-DQBHliTwIaU">Unsplash</a></figcaption>
+          </figure>
+          <div class="feature-copy">
+            <p class="section-kicker">A SIMPLE, HONEST PROCESS</p>
+            <h2 id="feature-title">Good repairs start with a conversation.</h2>
+            <p class="feature-intro">Tell us what your computer is doing. We’ll help you understand what’s going on and talk through the next step in plain English.</p>
+            <ol class="steps">
+              <li><span>01</span><div><strong>Tell us what’s wrong</strong><p>Share the symptoms and what you’ve already tried.</p></div></li>
+              <li><span>02</span><div><strong>Get a clear diagnosis</strong><p>We’ll explain the issue and your repair options.</p></div></li>
+              <li><span>03</span><div><strong>Get back to your day</strong><p>Choose the solution that works for you.</p></div></li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="contact" id="contact" aria-labelledby="contact-title">
+          <div>
+            <p class="section-kicker">NEED A HAND?</p>
+            <h2 id="contact-title">Let’s get your computer <span>working again.</span></h2>
+            <p>Get in touch to talk about the problem and find the right next step.</p>
+          </div>
+          <div class="contact-details">
+            <p><span>CALL</span><strong>[Your phone number]</strong></p>
+            <p><span>EMAIL</span><strong>[Your email address]</strong></p>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <a class="footer-brand" href="{{ site.Home.RelPermalink }}">Local PC Repair</a>
+        <span>Computer repair for home and small business</span>
         <span>© {{ now.Year }} {{ site.Title }}</span>
-        <span>Computer help for home and small business</span>
       </footer>
-    </main>
+    </div>
   </body>
 </html>
