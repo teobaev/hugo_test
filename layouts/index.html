@@ -88,8 +88,15 @@
       <p>{{ i18n "contactIntro" }}</p>
     </div>
     <div class="contact-details">
-      <p><span>{{ i18n "phoneLabel" }}</span><strong>[{{ i18n "phonePlaceholder" }}]</strong></p>
-      <p><span>{{ i18n "emailLabel" }}</span><strong>[{{ i18n "emailPlaceholder" }}]</strong></p>
+      {{ with site.Params.contact.phone }}
+        <p><span>{{ i18n "phoneLabel" }}</span><a href="tel:{{ . | replaceRE "[^+0-9]" "" }}">{{ . }}</a></p>
+      {{ end }}
+      {{ with site.Params.contact.email }}
+        <p><span>{{ i18n "emailLabel" }}</span><a href="mailto:{{ . }}">{{ . }}</a></p>
+      {{ end }}
+      {{ if not (or site.Params.contact.phone site.Params.contact.email) }}
+        <p class="contact-unavailable">{{ i18n "contactUnavailable" }}</p>
+      {{ end }}
     </div>
   </section>
 {{ end }}

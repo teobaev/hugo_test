@@ -15,8 +15,8 @@ Open the local URL printed by Hugo (usually <http://localhost:1313/>).
 ## Make it yours
 
 - Change the site title and description in `hugo.toml`.
+- Add the shop's phone number and email under `[params.contact]` in `hugo.toml`.
 - Edit the homepage copy and front matter in `content/_index.md`.
-- Update the contact link in `layouts/index.html`.
 - Adjust the visual style in `assets/css/main.css`.
 
 ## Publish with GitHub Pages

@@ -17,6 +17,10 @@ defaultContentLanguageInSubdir = false
 [params]
   description = "Компютърен сервиз във Варна за диагностика, ремонт и ъпгрейд на лаптопи и настолни компютри."
 
+  [params.contact]
+    phone = ""
+    email = ""
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]

@@ -82,10 +82,8 @@
   translation: "PHONE"
 - id: emailLabel
   translation: "EMAIL"
-- id: phonePlaceholder
-  translation: "phone number"
-- id: emailPlaceholder
-  translation: "email address"
+- id: contactUnavailable
+  translation: "Phone and email details are not available yet."
 - id: footerLine
   translation: "PC repair in Varna, Bulgaria"
 - id: priceKicker

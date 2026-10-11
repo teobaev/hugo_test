@@ -82,10 +82,8 @@
   translation: "ТЕЛЕФОН"
 - id: emailLabel
   translation: "ИМЕЙЛ"
-- id: phonePlaceholder
-  translation: "телефонен номер"
-- id: emailPlaceholder
-  translation: "имейл адрес"
+- id: contactUnavailable
+  translation: "Телефонът и имейлът все още не са налични."
 - id: footerLine
   translation: "Компютърен сервиз във Варна, България"
 - id: priceKicker
