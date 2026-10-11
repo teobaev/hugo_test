@@ -72,6 +72,28 @@
   translation: "Choose the next step"
 - id: stepThreeText
   translation: "We’ll get started once you’re happy with the price and plan."
+- id: faqKicker
+  translation: "FREQUENTLY ASKED QUESTIONS"
+- id: faqHeading
+  translation: "A few useful things to know."
+- id: faqIntro
+  translation: "Quick answers about prices, repair approval, and software."
+- id: faqOneQuestion
+  translation: "What does the listed price include?"
+- id: faqOneAnswer
+  translation: "Prices cover labour. Parts and software licences are charged separately."
+- id: faqTwoQuestion
+  translation: "Will you start a repair without my approval?"
+- id: faqTwoAnswer
+  translation: "No. For more complex repairs, we confirm the total first and only start after you approve it."
+- id: faqThreeQuestion
+  translation: "What if my computer won’t power on?"
+- id: faqThreeAnswer
+  translation: "We’ll start with diagnostics. The guide price for a computer with no power or picture is €25."
+- id: faqFourQuestion
+  translation: "Do I need to provide a software licence?"
+- id: faqFourAnswer
+  translation: "Yes. Customers provide licensed software for installation."
 - id: contactKicker
   translation: "NEED A HAND?"
 - id: contactHeading

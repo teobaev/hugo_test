@@ -72,6 +72,28 @@
   translation: "Избираш как да продължим"
 - id: stepThreeText
   translation: "Започваме след като си наясно с цената и решението."
+- id: faqKicker
+  translation: "ЧЕСТО ЗАДАВАНИ ВЪПРОСИ"
+- id: faqHeading
+  translation: "Полезно е да знаеш предварително."
+- id: faqIntro
+  translation: "Кратки отговори за цени, одобрение на ремонта и софтуер."
+- id: faqOneQuestion
+  translation: "Какво включва посочената цена?"
+- id: faqOneAnswer
+  translation: "Цените са за труд. Частите и софтуерните лицензи се заплащат отделно."
+- id: faqTwoQuestion
+  translation: "Започвате ли ремонта без потвърждение?"
+- id: faqTwoAnswer
+  translation: "Не. При по-сложен ремонт първо уточняваме крайната цена и започваме след потвърждение."
+- id: faqThreeQuestion
+  translation: "Какво става, ако компютърът не стартира?"
+- id: faqThreeAnswer
+  translation: "Започваме с диагностика. Ориентировъчната цена за компютър без захранване или картина е 25 €."
+- id: faqFourQuestion
+  translation: "Трябва ли да осигуря лиценз за софтуер?"
+- id: faqFourAnswer
+  translation: "Да. За инсталация на софтуер клиентът осигурява лицензиран софтуер."
 - id: contactKicker
   translation: "НУЖНА Е ПОМОЩ?"
 - id: contactHeading
