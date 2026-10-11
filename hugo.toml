@@ -1,9 +1,9 @@
 baseURL = "https://example.org/"
 languageCode = "en-us"
-title = "A Place on the Web"
+title = "Local PC Repair"
 
 [params]
-  description = "A simple, thoughtful corner of the internet."
+  description = "Friendly, straightforward computer repair for desktops and laptops. Get help with troubleshooting, repairs, and upgrades."
 
 [markup]
   [markup.goldmark]

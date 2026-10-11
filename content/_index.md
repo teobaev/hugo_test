@@ -1,9 +1,21 @@
 ---
-title: "A place on the web"
-description: "A simple, thoughtful corner of the internet."
-eyebrow: "Hello, and welcome"
-headline: "Make yourself\nat home."
-intro: "This is a fresh start for sharing ideas, projects, and whatever matters to you."
+title: "PC Repair & Upgrades"
+description: "Friendly, straightforward computer repair for desktops and laptops. Get help with troubleshooting, repairs, and upgrades."
+eyebrow: "Computer repair for home and small business"
+headline: "PC trouble?\nLet's fix it."
+intro: "Friendly, straightforward help for desktop and laptop problems, repairs, and upgrades."
 ---
 
-Use this space to introduce yourself or your work. Edit this page in `content/_index.md`, change the site title in `hugo.toml`, and make it yours.
+### Practical help for everyday computer problems {#services}
+
+From a slow computer to a part that needs replacing, get clear advice and hands-on help without the tech jargon.
+
+- Computer troubleshooting and diagnostics
+- Virus and malware cleanup
+- Desktop and laptop repairs
+- Memory, storage, and other hardware upgrades
+- Data transfers and new computer setup
+
+### Get in touch {#contact}
+
+Tell us what's going on and we'll help you figure out the next step. Call **[your phone number]** or email **[your email address]** to get started.
