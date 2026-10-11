@@ -1,9 +1,21 @@
 baseURL = "https://example.org/"
-languageCode = "en-us"
-title = "Local PC Repair"
+defaultContentLanguage = "bg"
+defaultContentLanguageInSubdir = false
+
+[languages.bg]
+  languageCode = "bg-BG"
+  languageName = "Български"
+  title = "PC Сервиз Варна"
+  weight = 1
+
+[languages.en]
+  languageCode = "en"
+  languageName = "English"
+  title = "Local PC Repair Varna"
+  weight = 2
 
 [params]
-  description = "Friendly, straightforward computer repair for desktops and laptops. Get help with troubleshooting, repairs, and upgrades."
+  description = "Компютърен сервиз във Варна за диагностика, ремонт и ъпгрейд на лаптопи и настолни компютри."
 
 [markup]
   [markup.goldmark]

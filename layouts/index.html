@@ -1,114 +1,83 @@
-<!doctype html>
-<html lang="{{ site.Language.LanguageCode }}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ .Description | default site.Params.description }}">
-    <meta name="theme-color" content="#f7f8f6">
-    <title>{{ .Title }} · {{ site.Title }}</title>
-    {{ with resources.Get "css/main.css" }}
-      {{ $style := . | minify | fingerprint }}
-      <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
-    {{ end }}
-  </head>
-  <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
-    <div class="site-shell">
-      <header class="site-header">
-        <a class="brand" href="{{ site.Home.RelPermalink }}" aria-label="{{ site.Title }} home">
-          <span class="brand-icon" aria-hidden="true"><span></span></span>
-          <span class="brand-name"><strong>LOCAL</strong><small>PC REPAIR</small></span>
-        </a>
-        <nav class="main-nav" aria-label="Main navigation">
-          <a href="#services">Services</a>
-          <a href="#how-it-works">How it works</a>
-          <a class="nav-cta" href="#contact">Get in touch <span aria-hidden="true">↗</span></a>
-        </nav>
-      </header>
-
-      <main id="main-content">
-        <section class="hero" aria-labelledby="hero-title">
-          <div class="hero-copy">
-            <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>{{ .Params.eyebrow }}</p>
-            <h1 id="hero-title">{{ .Params.headline | default .Title }}</h1>
-            <p class="hero-intro">{{ .Params.intro | default .Description }}</p>
-            <div class="hero-actions">
-              <a class="button button-primary" href="#contact">{{ .Params.cta | default "Get repair help" }} <span aria-hidden="true">↗</span></a>
-              <a class="text-link" href="#services">Explore services <span aria-hidden="true">↓</span></a>
-            </div>
-            <p class="hero-note"><span aria-hidden="true">✳</span> Clear advice. No tech jargon.</p>
-          </div>
-
-          <figure class="hero-photo">
-            {{ with resources.Get "images/laptop-repair.jpg" }}
-              {{ $heroImage := . | fingerprint }}
-              <img src="{{ $heroImage.RelPermalink }}" alt="Hands-on repair of an open laptop" fetchpriority="high">
-            {{ end }}
-            <figcaption class="photo-label"><span>Careful work, clear answers</span><span>01 / 02</span></figcaption>
-          </figure>
-        </section>
-
-        <section class="promise-strip" aria-label="Repair shop services">
-          <p><span aria-hidden="true">✓</span> Desktop &amp; laptop repair</p>
-          <p><span aria-hidden="true">✓</span> Troubleshooting &amp; upgrades</p>
-          <p><span aria-hidden="true">✓</span> Friendly, straightforward help</p>
-        </section>
-
-        <section class="services section-block" id="services" aria-labelledby="services-title">
-          <div class="section-heading">
-            <p class="section-kicker">HOW WE CAN HELP</p>
-            <h2 id="services-title">Your computer, <span>back on track.</span></h2>
-            <p>From everyday slowdowns to hardware upgrades, get practical help for the problems that interrupt your day.</p>
-          </div>
-          <div class="service-grid">
-            {{ range $index, $service := .Params.services }}
-              <article class="service-card">
-                <span class="service-number">0{{ add $index 1 }}</span>
-                <h3>{{ $service.title }}</h3>
-                <p>{{ $service.description }}</p>
-              </article>
-            {{ end }}
-          </div>
-        </section>
-
-        <section class="feature" id="how-it-works" aria-labelledby="feature-title">
-          <figure class="feature-photo">
-            {{ with resources.Get "images/pc-upgrade.jpg" }}
-              {{ $detailImage := . | fingerprint }}
-              <img src="{{ $detailImage.RelPermalink }}" alt="A computer processor being fitted to a motherboard" loading="lazy">
-            {{ end }}
-            <figcaption class="photo-credit">Photos via <a href="https://unsplash.com/photos/a-person-working-on-a-laptop-with-a-screwdriver-Qkq3yuy0noE">Unsplash</a> and <a href="https://unsplash.com/photos/hand-installing-a-computer-processor-onto-a-motherboard-DQBHliTwIaU">Unsplash</a></figcaption>
-          </figure>
-          <div class="feature-copy">
-            <p class="section-kicker">A SIMPLE, HONEST PROCESS</p>
-            <h2 id="feature-title">Good repairs start with a conversation.</h2>
-            <p class="feature-intro">Tell us what your computer is doing. We’ll help you understand what’s going on and talk through the next step in plain English.</p>
-            <ol class="steps">
-              <li><span>01</span><div><strong>Tell us what’s wrong</strong><p>Share the symptoms and what you’ve already tried.</p></div></li>
-              <li><span>02</span><div><strong>Get a clear diagnosis</strong><p>We’ll explain the issue and your repair options.</p></div></li>
-              <li><span>03</span><div><strong>Get back to your day</strong><p>Choose the solution that works for you.</p></div></li>
-            </ol>
-          </div>
-        </section>
-
-        <section class="contact" id="contact" aria-labelledby="contact-title">
-          <div>
-            <p class="section-kicker">NEED A HAND?</p>
-            <h2 id="contact-title">Let’s get your computer <span>working again.</span></h2>
-            <p>Get in touch to talk about the problem and find the right next step.</p>
-          </div>
-          <div class="contact-details">
-            <p><span>CALL</span><strong>[Your phone number]</strong></p>
-            <p><span>EMAIL</span><strong>[Your email address]</strong></p>
-          </div>
-        </section>
-      </main>
-
-      <footer class="site-footer">
-        <a class="footer-brand" href="{{ site.Home.RelPermalink }}">Local PC Repair</a>
-        <span>Computer repair for home and small business</span>
-        <span>© {{ now.Year }} {{ site.Title }}</span>
-      </footer>
+{{ define "main" }}
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>{{ .Params.eyebrow }}</p>
+      <h1 id="hero-title">{{ .Params.headline | default .Title }}</h1>
+      <p class="hero-intro">{{ .Params.intro | default .Description }}</p>
+      <div class="hero-actions">
+        {{ with site.GetPage "/prices" }}
+          <a class="button button-primary" href="{{ .RelPermalink }}">{{ i18n "viewPrices" }} <span aria-hidden="true">↗</span></a>
+        {{ end }}
+        <a class="text-link" href="#contact">{{ i18n "contactCta" }} <span aria-hidden="true">↓</span></a>
+      </div>
+      <p class="hero-note"><span aria-hidden="true">✳</span> {{ i18n "heroNote" }}</p>
     </div>
-  </body>
-</html>
+
+    <figure class="hero-photo">
+      {{ with resources.Get "images/laptop-repair.jpg" }}
+        {{ $heroImage := . | fingerprint }}
+        <img src="{{ $heroImage.RelPermalink }}" alt="{{ i18n "heroImageAlt" }}" fetchpriority="high">
+      {{ end }}
+      <figcaption class="photo-label"><span>{{ i18n "heroImageCaption" }}</span><span>01 / 02</span></figcaption>
+    </figure>
+  </section>
+
+  <section class="promise-strip" aria-label="{{ i18n "promiseLabel" }}">
+    <p><span aria-hidden="true">✓</span> {{ i18n "promiseOne" }}</p>
+    <p><span aria-hidden="true">✓</span> {{ i18n "promiseTwo" }}</p>
+    <p><span aria-hidden="true">✓</span> {{ i18n "promiseThree" }}</p>
+  </section>
+
+  <section class="services section-block" id="services" aria-labelledby="services-title">
+    <div class="section-heading">
+      <p class="section-kicker">{{ i18n "servicesKicker" }}</p>
+      <h2 id="services-title">{{ i18n "servicesHeading" }}</h2>
+      <p>{{ i18n "servicesIntro" }}</p>
+    </div>
+    <div class="service-grid">
+      {{ range $index, $service := .Params.services }}
+        <article class="service-card">
+          <span class="service-number">0{{ add $index 1 }}</span>
+          <h3>{{ $service.title }}</h3>
+          <p>{{ $service.description }}</p>
+        </article>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="feature" id="how-it-works" aria-labelledby="feature-title">
+    <figure class="feature-photo">
+      {{ with resources.Get "images/pc-upgrade.jpg" }}
+        {{ $detailImage := . | fingerprint }}
+        <img src="{{ $detailImage.RelPermalink }}" alt="{{ i18n "componentsPhotoAlt" }}" loading="lazy">
+      {{ end }}
+      <figcaption class="photo-credit">
+        {{ i18n "photoCredit" }}:
+        <a href="https://unsplash.com/photos/a-person-working-on-a-laptop-with-a-screwdriver-Qkq3yuy0noE">{{ i18n "laptopPhoto" }}</a> ·
+        <a href="https://unsplash.com/photos/hand-installing-a-computer-processor-onto-a-motherboard-DQBHliTwIaU">{{ i18n "componentsPhoto" }}</a>
+      </figcaption>
+    </figure>
+    <div class="feature-copy">
+      <p class="section-kicker">{{ i18n "processKicker" }}</p>
+      <h2 id="feature-title">{{ i18n "processHeading" }}</h2>
+      <p class="feature-intro">{{ i18n "processIntro" }}</p>
+      <ol class="steps">
+        <li><span>01</span><div><strong>{{ i18n "stepOneTitle" }}</strong><p>{{ i18n "stepOneText" }}</p></div></li>
+        <li><span>02</span><div><strong>{{ i18n "stepTwoTitle" }}</strong><p>{{ i18n "stepTwoText" }}</p></div></li>
+        <li><span>03</span><div><strong>{{ i18n "stepThreeTitle" }}</strong><p>{{ i18n "stepThreeText" }}</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" aria-labelledby="contact-title">
+    <div>
+      <p class="section-kicker">{{ i18n "contactKicker" }}</p>
+      <h2 id="contact-title">{{ i18n "contactHeading" }}</h2>
+      <p>{{ i18n "contactIntro" }}</p>
+    </div>
+    <div class="contact-details">
+      <p><span>{{ i18n "phoneLabel" }}</span><strong>[{{ i18n "phonePlaceholder" }}]</strong></p>
+      <p><span>{{ i18n "emailLabel" }}</span><strong>[{{ i18n "emailPlaceholder" }}]</strong></p>
+    </div>
+  </section>
+{{ end }}

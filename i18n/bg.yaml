@@ -1,0 +1,92 @@
+- id: skipToContent
+  translation: "Към съдържанието"
+- id: navLabel
+  translation: "Основна навигация"
+- id: brandTop
+  translation: "PC"
+- id: brandBottom
+  translation: "СЕРВИЗ · ВАРНА"
+- id: services
+  translation: "Услуги"
+- id: prices
+  translation: "Цени"
+- id: process
+  translation: "Как работим"
+- id: contact
+  translation: "Контакти"
+- id: contactCta
+  translation: "Запитване"
+- id: languageLabel
+  translation: "Избор на език"
+- id: heroNote
+  translation: "Ясни обяснения. Без техно-жаргон."
+- id: promiseLabel
+  translation: "Компютърен сервиз във Варна"
+- id: promiseOne
+  translation: "Ремонт на лаптопи и компютри"
+- id: promiseTwo
+  translation: "Диагностика и ъпгрейди"
+- id: promiseThree
+  translation: "Ясни цени преди ремонта"
+- id: servicesKicker
+  translation: "С КАКВО МОЖЕМ ДА ПОМОГНЕМ"
+- id: servicesHeading
+  translation: "Компютърът ти пак е\nв добра форма."
+- id: servicesIntro
+  translation: "От ежедневни забивания до хардуерни ъпгрейди — практична помощ за проблемите, които прекъсват деня ти."
+- id: heroImageAlt
+  translation: "Ръце ремонтират отворен лаптоп"
+- id: heroImageCaption
+  translation: "Внимателен ремонт, ясни отговори"
+- id: photoCredit
+  translation: "Снимки от Unsplash"
+- id: laptopPhoto
+  translation: "ремонт на лаптоп"
+- id: componentsPhoto
+  translation: "компютърен компонент"
+- id: componentsPhotoAlt
+  translation: "Ръка поставя процесор върху дънна платка"
+- id: processKicker
+  translation: "ПРОСТ И ЯСЕН ПРОЦЕС"
+- id: processHeading
+  translation: "Добрият ремонт започва с разговор."
+- id: processIntro
+  translation: "Разкажи ни какво прави компютърът. Ще помогнем да разбереш какво се случва и ще обсъдим следващата стъпка на разбираем език."
+- id: stepOneTitle
+  translation: "Разкажи какво не е наред"
+- id: stepOneText
+  translation: "Опиши симптомите и какво вече си опитал."
+- id: stepTwoTitle
+  translation: "Получаваш ясна диагноза"
+- id: stepTwoText
+  translation: "Обясняваме проблема и възможностите за ремонт."
+- id: stepThreeTitle
+  translation: "Избираш как да продължим"
+- id: stepThreeText
+  translation: "Започваме след като си наясно с цената и решението."
+- id: contactKicker
+  translation: "НУЖНА Е ПОМОЩ?"
+- id: contactHeading
+  translation: "Нека върнем компютъра\nв играта."
+- id: contactIntro
+  translation: "Свържи се с нас, за да обсъдим проблема и най-разумната следваща стъпка."
+- id: phoneLabel
+  translation: "ТЕЛЕФОН"
+- id: emailLabel
+  translation: "ИМЕЙЛ"
+- id: phonePlaceholder
+  translation: "телефонен номер"
+- id: emailPlaceholder
+  translation: "имейл адрес"
+- id: footerLine
+  translation: "Компютърен сервиз във Варна, България"
+- id: priceKicker
+  translation: "ЯСНИ ЦЕНИ, БЕЗ ИЗНЕНАДИ"
+- id: priceNoteLabel
+  translation: "Преди да започнем"
+- id: priceContactHeading
+  translation: "Не си сигурен какво му има?"
+- id: priceContactText
+  translation: "Няма нужда да поставяш диагноза по интернет. Опиши симптомите и ще насочим разговора."
+- id: viewPrices
+  translation: "Виж цени"

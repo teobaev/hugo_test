@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="{{ site.Language.LanguageCode }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ .Description | default site.Params.description }}">
+    <meta name="theme-color" content="#101715">
+    <title>{{ .Title }} · {{ site.Title }}</title>
+    {{ with resources.Get "css/main.css" }}
+      {{ $style := . | minify | fingerprint }}
+      <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+    {{ end }}
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">{{ i18n "skipToContent" }}</a>
+    <div class="site-shell">
+      {{ $home := site.Home.RelPermalink }}
+      {{ $pricesPage := site.GetPage "/prices" }}
+      <header class="site-header">
+        <a class="brand" href="{{ $home }}" aria-label="{{ site.Title }} home">
+          <span class="brand-icon" aria-hidden="true"><span></span></span>
+          <span class="brand-name"><strong>{{ i18n "brandTop" }}</strong><small>{{ i18n "brandBottom" }}</small></span>
+        </a>
+        <nav class="main-nav" aria-label="{{ i18n "navLabel" }}">
+          <a class="nav-section-link" href="{{ $home }}#services">{{ i18n "services" }}</a>
+          <a class="nav-section-link" href="{{ $home }}#how-it-works">{{ i18n "process" }}</a>
+          {{ with $pricesPage }}<a class="nav-prices" href="{{ .RelPermalink }}">{{ i18n "prices" }}</a>{{ end }}
+          <a class="nav-cta" href="{{ $home }}#contact">{{ i18n "contactCta" }} <span aria-hidden="true">↗</span></a>
+        </nav>
+        <nav class="language-switch" aria-label="{{ i18n "languageLabel" }}">
+          {{ range .AllTranslations }}
+            <a href="{{ .RelPermalink }}" lang="{{ .Lang }}" hreflang="{{ .Lang }}" {{ if eq .Lang site.Language.Lang }}class="is-active" aria-current="page"{{ end }}>{{ .Lang | upper }}</a>
+          {{ end }}
+        </nav>
+      </header>
+
+      <main id="main-content">
+        {{ block "main" . }}{{ end }}
+      </main>
+
+      <footer class="site-footer">
+        <a class="footer-brand" href="{{ $home }}">{{ site.Title }}</a>
+        <span>{{ i18n "footerLine" }}</span>
+        <span>© {{ now.Year }} {{ site.Title }}</span>
+      </footer>
+    </div>
+  </body>
+</html>

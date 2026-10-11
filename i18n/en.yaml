@@ -1,0 +1,92 @@
+- id: skipToContent
+  translation: "Skip to content"
+- id: navLabel
+  translation: "Main navigation"
+- id: brandTop
+  translation: "LOCAL"
+- id: brandBottom
+  translation: "PC REPAIR · VARNA"
+- id: services
+  translation: "Services"
+- id: prices
+  translation: "Prices"
+- id: process
+  translation: "How it works"
+- id: contact
+  translation: "Contact"
+- id: contactCta
+  translation: "Get in touch"
+- id: languageLabel
+  translation: "Choose language"
+- id: heroNote
+  translation: "Clear answers. No tech jargon."
+- id: promiseLabel
+  translation: "PC repair in Varna"
+- id: promiseOne
+  translation: "Laptop & desktop repairs"
+- id: promiseTwo
+  translation: "Diagnostics & upgrades"
+- id: promiseThree
+  translation: "Clear prices before repairs"
+- id: servicesKicker
+  translation: "HOW WE CAN HELP"
+- id: servicesHeading
+  translation: "A happier computer\nis a few steps away."
+- id: servicesIntro
+  translation: "From everyday slowdowns to hardware upgrades, get practical help for the tech problems interrupting your day."
+- id: heroImageAlt
+  translation: "Hands repairing an open laptop"
+- id: heroImageCaption
+  translation: "Careful work, clear answers"
+- id: photoCredit
+  translation: "Photos via Unsplash"
+- id: laptopPhoto
+  translation: "laptop repair"
+- id: componentsPhoto
+  translation: "PC component"
+- id: componentsPhotoAlt
+  translation: "A hand fitting a processor to a motherboard"
+- id: processKicker
+  translation: "A SIMPLE, CLEAR PROCESS"
+- id: processHeading
+  translation: "Good repairs start with a conversation."
+- id: processIntro
+  translation: "Tell us what your computer is doing. We’ll help you understand what’s going on and talk through the next step in plain English."
+- id: stepOneTitle
+  translation: "Tell us what’s wrong"
+- id: stepOneText
+  translation: "Share the symptoms and what you’ve already tried."
+- id: stepTwoTitle
+  translation: "Get a clear diagnosis"
+- id: stepTwoText
+  translation: "We’ll explain the issue and your repair options."
+- id: stepThreeTitle
+  translation: "Choose the next step"
+- id: stepThreeText
+  translation: "We’ll get started once you’re happy with the price and plan."
+- id: contactKicker
+  translation: "NEED A HAND?"
+- id: contactHeading
+  translation: "Let’s get your computer\nback in the game."
+- id: contactIntro
+  translation: "Get in touch to talk about the problem and find a sensible next step."
+- id: phoneLabel
+  translation: "PHONE"
+- id: emailLabel
+  translation: "EMAIL"
+- id: phonePlaceholder
+  translation: "phone number"
+- id: emailPlaceholder
+  translation: "email address"
+- id: footerLine
+  translation: "PC repair in Varna, Bulgaria"
+- id: priceKicker
+  translation: "CLEAR PRICES, NO SURPRISES"
+- id: priceNoteLabel
+  translation: "Before we get started"
+- id: priceContactHeading
+  translation: "Not sure what’s wrong?"
+- id: priceContactText
+  translation: "No need to diagnose it over the internet. Tell us what it’s doing and we’ll take it from there."
+- id: viewPrices
+  translation: "View prices"
