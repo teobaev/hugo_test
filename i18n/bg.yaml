@@ -1,5 +1,17 @@
 - id: skipToContent
   translation: "Към съдържанието"
+- id: scrollDown
+  translation: "Надолу към услугите"
+- id: backHome
+  translation: "Към началото"
+- id: navStart
+  translation: "Начало"
+- id: navAbout
+  translation: "За нас"
+- id: navGallery
+  translation: "Галерия"
+- id: navFaq
+  translation: "Въпроси"
 - id: navLabel
   translation: "Основна навигация"
 - id: brandTop

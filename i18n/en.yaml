@@ -1,5 +1,17 @@
 - id: skipToContent
   translation: "Skip to content"
+- id: scrollDown
+  translation: "Scroll down to services"
+- id: backHome
+  translation: "Back to start"
+- id: navStart
+  translation: "Start"
+- id: navAbout
+  translation: "About"
+- id: navGallery
+  translation: "Gallery"
+- id: navFaq
+  translation: "FAQ"
 - id: navLabel
   translation: "Main navigation"
 - id: brandTop

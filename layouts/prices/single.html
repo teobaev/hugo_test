@@ -1,32 +1,34 @@
 {{ define "main" }}
-  <section class="price-page" aria-labelledby="price-title">
-    <div class="page-heading">
-      <p class="section-kicker">{{ i18n "priceKicker" }}</p>
-      <h1 id="price-title">{{ .Title }}</h1>
-      <p>{{ .Params.intro }}</p>
-    </div>
+  <div class="page-wrap">
+    <section aria-labelledby="price-title">
+      <div class="page-heading">
+        <p class="section-kicker">{{ i18n "priceKicker" }}</p>
+        <h1 id="price-title">{{ .Title }}</h1>
+        <p>{{ .Params.intro }}</p>
+      </div>
 
-    <aside class="price-note">
-      <span class="note-icon" aria-hidden="true">i</span>
-      <div><strong>{{ i18n "priceNoteLabel" }}</strong><p>{{ .Params.price_note }}</p></div>
-    </aside>
+      <aside class="price-note">
+        <span class="note-icon" aria-hidden="true">i</span>
+        <div><strong>{{ i18n "priceNoteLabel" }}</strong><p>{{ .Params.price_note }}</p></div>
+      </aside>
 
-    <div class="price-groups">
-      {{ range .Params.groups }}
-        <section class="price-group">
-          <h2>{{ .title }}</h2>
-          <div class="price-list">
-            {{ range .items }}
-              <div class="price-row"><span>{{ .name }}</span><strong>{{ .price }}</strong></div>
-            {{ end }}
-          </div>
-        </section>
-      {{ end }}
-    </div>
+      <div class="price-groups">
+        {{ range .Params.groups }}
+          <section class="price-group">
+            <h2>{{ .title }}</h2>
+            <div class="price-list">
+              {{ range .items }}
+                <div class="price-row"><span>{{ .name }}</span><strong>{{ .price }}</strong></div>
+              {{ end }}
+            </div>
+          </section>
+        {{ end }}
+      </div>
 
-    <section class="price-contact">
-      <div><h2>{{ i18n "priceContactHeading" }}</h2><p>{{ i18n "priceContactText" }}</p></div>
-      <a class="button button-primary" href="{{ site.Home.RelPermalink }}#contact">{{ i18n "contactCta" }} <span aria-hidden="true">↗</span></a>
+      <section class="price-contact">
+        <div><h2>{{ i18n "priceContactHeading" }}</h2><p>{{ i18n "priceContactText" }}</p></div>
+        <a class="btn" href="{{ site.Home.RelPermalink }}#contact">{{ i18n "contactCta" }}</a>
+      </section>
     </section>
-  </section>
+  </div>
 {{ end }}

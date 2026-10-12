@@ -24,40 +24,41 @@
       <link rel="preload" href="{{ printf "fonts/golos-text-%s-normal.woff2" . | relURL }}" as="font" type="font/woff2" crossorigin>
     {{ end }}
   </head>
-  <body>
+  <body class="{{ if .IsHome }}home-template{{ else }}page-template{{ end }}">
     <a class="skip-link" href="#main-content">{{ i18n "skipToContent" }}</a>
-    <div class="site-shell">
+
+    {{ if not .IsHome }}
       {{ $home := site.Home.RelPermalink }}
-      {{ $pricesPage := site.GetPage "/prices" }}
-      <header class="site-header">
-        <a class="brand" href="{{ $home }}" aria-label="{{ site.Title }} home">
-          <span class="brand-icon" aria-hidden="true"><span></span></span>
+      <header class="page-topbar">
+        <a class="brand" href="{{ $home }}" aria-label="{{ site.Title }}">
+          <span class="brand-icon" aria-hidden="true"></span>
           <span class="brand-name"><strong>{{ i18n "brandTop" }}</strong><small>{{ i18n "brandBottom" }}</small></span>
         </a>
-        <nav class="main-nav" aria-label="{{ i18n "navLabel" }}">
-          <a class="nav-section-link" href="{{ $home }}#services">{{ i18n "services" }}</a>
-          <a class="nav-section-link" href="{{ $home }}#how-it-works">{{ i18n "process" }}</a>
-          {{ with $pricesPage }}<a class="nav-prices" href="{{ .RelPermalink }}">{{ i18n "prices" }}</a>{{ end }}
-          <a class="nav-cta" href="{{ $home }}#contact">{{ i18n "contactCta" }} <span aria-hidden="true">↗</span></a>
-        </nav>
-        <nav class="language-switch" aria-label="{{ i18n "languageLabel" }}">
-          {{ range .AllTranslations }}
-            <a href="{{ .RelPermalink }}" lang="{{ .Lang }}" hreflang="{{ .Lang }}" {{ if eq .Lang site.Language.Lang }}class="is-active" aria-current="page"{{ end }}>{{ .Lang | upper }}</a>
-          {{ end }}
+        <nav class="page-topbar-nav" aria-label="{{ i18n "navLabel" }}">
+          <a class="back-home" href="{{ $home }}"><span aria-hidden="true">←</span> {{ i18n "backHome" }}</a>
+          <span class="language-switch">
+            {{ range .AllTranslations }}
+              <a href="{{ .RelPermalink }}" lang="{{ .Lang }}" hreflang="{{ .Lang }}" {{ if eq .Lang site.Language.Lang }}class="is-active" aria-current="page"{{ end }}>{{ .Lang | upper }}</a>
+            {{ end }}
+          </span>
         </nav>
       </header>
+    {{ end }}
 
-      <main id="main-content">
-        {{ block "main" . }}{{ end }}
-      </main>
+    <main id="main-content"{{ if .IsHome }} class="content" role="main"{{ end }}>
+      {{ block "main" . }}{{ end }}
+    </main>
 
-      <footer class="site-footer">
-        <div class="footer-inner">
-          <a class="footer-brand" href="{{ $home }}">{{ site.Title }}</a>
-          <span>{{ i18n "footerLine" }}</span>
-          <span>© {{ now.Year }} {{ site.Title }}</span>
-        </div>
-      </footer>
-    </div>
+    <footer class="site-footer">
+      {{ $home := site.Home.RelPermalink }}
+      <a class="footer-brand" href="{{ $home }}">{{ site.Title }}</a>
+      <p>{{ i18n "footerLine" }}</p>
+      <p class="footer-links">
+        <a href="{{ $home }}#services">{{ i18n "services" }}</a>
+        {{ with site.GetPage "/prices" }}<a href="{{ .RelPermalink }}">{{ i18n "prices" }}</a>{{ end }}
+        <a href="{{ $home }}#contact">{{ i18n "contact" }}</a>
+      </p>
+      <p>© {{ now.Year }} {{ site.Title }}</p>
+    </footer>
   </body>
 </html>
