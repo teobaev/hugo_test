@@ -118,3 +118,11 @@
   translation: "Няма нужда да поставяш диагноза по интернет. Опиши симптомите и ще насочим разговора."
 - id: viewPrices
   translation: "Виж цени"
+- id: galleryKicker
+  translation: "ОТ РАБОТНОТО МЯСТО"
+- id: galleryHeading
+  translation: "Внимателни ръце, реални машини."
+- id: gallerySetupAlt
+  translation: "Подредено работно място с модерен монитор"
+- id: galleryGamingAlt
+  translation: "Настолен компютър в неонова светлина"

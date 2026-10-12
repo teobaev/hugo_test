@@ -118,3 +118,11 @@
   translation: "No need to diagnose it over the internet. Tell us what it’s doing and we’ll take it from there."
 - id: viewPrices
   translation: "View prices"
+- id: galleryKicker
+  translation: "INSIDE THE WORKSHOP"
+- id: galleryHeading
+  translation: "Careful hands, real machines."
+- id: gallerySetupAlt
+  translation: "A tidy desk setup with a modern monitor"
+- id: galleryGamingAlt
+  translation: "A desktop computer glowing in magenta ambient light"
