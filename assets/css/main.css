@@ -215,12 +215,12 @@ h1 { max-width: 760px; margin-bottom: 24px; font-size: clamp(58px, 7.9vw, 100px)
 .price-contact .button { flex: 0 0 auto; }
 
 /* Scroll-linked motion: photos drift and vectors trace into view as the page moves. */
-@keyframes enter-up { from { opacity: 0; translate: 0 54px; rotate: -2deg; } to { opacity: 1; translate: 0 0; rotate: 0deg; } }
-@keyframes photo-drift { 0% { scale: 1.13; translate: 0 5%; } 45% { scale: 1.02; translate: 0 0; } 100% { scale: 1.1; translate: 0 -6%; } }
+@keyframes enter-from-left { from { opacity: 0; translate: -58px 0; } to { opacity: 1; translate: 0 0; } }
+@keyframes enter-from-right { from { opacity: 0; translate: 58px 0; } to { opacity: 1; translate: 0 0; } }
+@keyframes photo-drift { 0% { opacity: 0; scale: 1.13; translate: 8% 0; } 45% { opacity: 1; scale: 1.02; translate: 0 0; } 100% { opacity: 1; scale: 1.1; translate: -4% 0; } }
 @keyframes vector-travel { 0% { rotate: -23deg; scale: .72; translate: 18px 26px; opacity: 0; } 35% { opacity: .95; } 60% { rotate: 2deg; scale: 1; translate: 0 0; opacity: .9; } 100% { rotate: 24deg; scale: .85; translate: -12px -25px; opacity: .15; } }
-@keyframes card-rise { from { opacity: 0; translate: 0 70px; rotate: 3deg; } to { opacity: 1; translate: 0 0; rotate: 0; } }
 @keyframes orbit-turn { from { rotate: -42deg; scale: .82; } to { rotate: 28deg; scale: 1.06; } }
-@keyframes arrive { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes arrive { from { opacity: 0; transform: translateX(-34px); } to { opacity: 1; transform: translateX(0); } }
 @media (prefers-reduced-motion: no-preference) {
   .hero-copy { animation: arrive .75s var(--ease) both; }
   .status-dot { animation: pulse-dot 2.6s ease-in-out infinite; }
@@ -232,14 +232,20 @@ h1 { max-width: 760px; margin-bottom: 24px; font-size: clamp(58px, 7.9vw, 100px)
     .hero-photo img, .feature-photo img { animation: photo-drift 1s linear both; animation-timeline: view(block); animation-range: cover 0% cover 100%; }
     .hero-vector { animation: vector-travel 1s linear both; animation-timeline: view(block); animation-range: cover 0% cover 100%; transform-origin: 70% 35%; }
     .process-vector { animation: orbit-turn 1s linear both; animation-timeline: view(block); animation-range: entry 0% exit 100%; transform-origin: 70% 55%; }
-    .service-card, .local-intro, .feature-copy, .faq-item, .contact,
-    .price-note, .price-group, .price-contact {
-      animation: enter-up 1s var(--ease) both;
+    .hero-photo, .promise-strip p, .section-heading, .service-card,
+    .local-intro-heading, .local-intro-copy, .feature-photo, .feature-copy,
+    .faq-intro, .faq-item, .price-note, .price-group, .price-contact {
+      animation: enter-from-left 1s var(--ease) both;
       animation-timeline: view(block);
-      animation-range: entry 0% entry 90%;
+      animation-range: entry 0% entry 85%;
     }
-    .service-card:nth-child(2) { animation-name: card-rise; animation-range: entry 0% entry 90%; }
-    .service-card:nth-child(3) { animation-name: enter-up; animation-range: entry 0% entry 90%; }
+    .hero-photo, .promise-strip p:nth-child(even), .service-card:nth-child(even),
+    .local-intro-copy, .feature-photo, .faq-item:nth-child(even),
+    .price-group:nth-child(even), .price-contact .button {
+      animation-name: enter-from-right;
+    }
+    .contact > div:first-child { animation: enter-from-left 1s var(--ease) both; animation-timeline: view(block); animation-range: entry 0% entry 85%; }
+    .contact-details { animation: enter-from-right 1s var(--ease) both; animation-timeline: view(block); animation-range: entry 0% entry 85%; }
   }
 }
 
