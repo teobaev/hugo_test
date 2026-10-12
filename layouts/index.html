@@ -18,13 +18,11 @@
         {{ $heroImage := . | fingerprint }}
         <img src="{{ $heroImage.RelPermalink }}" alt="{{ i18n "heroImageAlt" }}" fetchpriority="high">
       {{ end }}
-      <span class="fire-effect" aria-hidden="true">
-        <svg viewBox="0 0 320 180" preserveAspectRatio="none">
-          <path class="flame-outer" d="M0 180c20-35 5-55 42-85-10 35 21 40 24-3 3-39 25-59 46-92-4 49 32 62 20 104 21-16 38-42 33-73 40 35 30 76 57 95 17-14 21-39 36-62 35 36 12 80 62 116H0Z"></path>
-          <path class="flame-inner" d="M69 180c23-25 8-42 38-68-4 33 22 38 37 6 12-26 29-38 37-66 4 39 30 55 17 85 26-15 33 8 53 43H69Z"></path>
-        </svg>
-      </span>
-      <figcaption class="photo-label"><span>{{ i18n "heroImageCaption" }}</span><span>01 / 02</span></figcaption>
+      <figcaption class="photo-label">
+        <span class="photo-label-status" aria-hidden="true"></span>
+        <span>{{ i18n "heroImageCaption" }}</span>
+        <span class="photo-label-index">01 <span aria-hidden="true">/</span> 02</span>
+      </figcaption>
     </figure>
   </section>
 
