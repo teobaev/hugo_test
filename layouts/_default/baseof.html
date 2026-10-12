@@ -14,7 +14,7 @@
     <meta property="og:description" content="{{ $description }}">
     <meta property="og:url" content="{{ .Permalink }}">
     <meta property="og:site_name" content="{{ site.Title }}">
-    <meta name="theme-color" content="#0a0d13">
+    <meta name="theme-color" content="#0b0d11">
     <title>{{ .Title }} · {{ site.Title }}</title>
     {{ with resources.Get "css/main.css" }}
       {{ $style := . | minify | fingerprint }}
