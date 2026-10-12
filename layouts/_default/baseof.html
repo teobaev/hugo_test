@@ -14,11 +14,14 @@
     <meta property="og:description" content="{{ $description }}">
     <meta property="og:url" content="{{ .Permalink }}">
     <meta property="og:site_name" content="{{ site.Title }}">
-    <meta name="theme-color" content="#0b0d11">
+    <meta name="theme-color" content="#141515">
     <title>{{ .Title }} · {{ site.Title }}</title>
     {{ with resources.Get "css/main.css" }}
       {{ $style := . | minify | fingerprint }}
       <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+    {{ end }}
+    {{ range slice "latin-400" "latin-800" "cyrillic-400" "cyrillic-800" }}
+      <link rel="preload" href="{{ printf "fonts/golos-text-%s-normal.woff2" . | relURL }}" as="font" type="font/woff2" crossorigin>
     {{ end }}
   </head>
   <body>
@@ -49,9 +52,11 @@
       </main>
 
       <footer class="site-footer">
-        <a class="footer-brand" href="{{ $home }}">{{ site.Title }}</a>
-        <span>{{ i18n "footerLine" }}</span>
-        <span>© {{ now.Year }} {{ site.Title }}</span>
+        <div class="footer-inner">
+          <a class="footer-brand" href="{{ $home }}">{{ site.Title }}</a>
+          <span>{{ i18n "footerLine" }}</span>
+          <span>© {{ now.Year }} {{ site.Title }}</span>
+        </div>
       </footer>
     </div>
   </body>

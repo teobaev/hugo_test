@@ -1,43 +1,50 @@
 {{ define "main" }}
   <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-head">
-      <div class="hero-head-main">
-        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>{{ .Params.eyebrow }}</p>
-        <h1 id="hero-title">{{ .Params.headline | default .Title }}</h1>
-      </div>
-      <div class="hero-head-side anim-x-right">
-        <p class="hero-intro">{{ .Params.intro | default .Description }}</p>
-        <div class="hero-actions">
-          {{ with site.GetPage "/prices" }}
-            <a class="button button-primary" href="{{ .RelPermalink }}"><span class="button-label">{{ i18n "viewPrices" }}</span><span class="cta-burst" aria-hidden="true"></span><span class="button-arrow" aria-hidden="true">↗</span></a>
-          {{ end }}
-          <a class="text-link" href="#contact">{{ i18n "contactCta" }} <span aria-hidden="true">↓</span></a>
-        </div>
-        <p class="hero-note"><span aria-hidden="true">✳</span> {{ i18n "heroNote" }}</p>
-      </div>
-    </div>
-
-    <figure class="hero-photo anim-x-left">
+    <div class="hero-media" aria-hidden="true">
       {{ with resources.Get "images/laptop-repair.jpg" }}
-        {{ $heroImage := . | fingerprint }}
-        <img src="{{ $heroImage.RelPermalink }}" alt="{{ i18n "heroImageAlt" }}" fetchpriority="high">
+        {{ $heroImage := .Resize "1920x" | fingerprint }}
+        <img src="{{ $heroImage.RelPermalink }}" alt="" fetchpriority="high">
       {{ end }}
-      <span class="frame-corner frame-tl" aria-hidden="true"></span>
-      <span class="frame-corner frame-tr" aria-hidden="true"></span>
-      <span class="frame-corner frame-bl" aria-hidden="true"></span>
-      <span class="frame-corner frame-br" aria-hidden="true"></span>
-      <figcaption class="photo-chip">
-        <span class="chip-dot" aria-hidden="true"></span>
-        <span>{{ i18n "heroImageCaption" }}</span>
-      </figcaption>
-    </figure>
-
-    <div class="hero-proof">
-      <p class="anim-x-left"><span aria-hidden="true">✓</span> {{ i18n "promiseOne" }}</p>
-      <p class="anim-x-left"><span aria-hidden="true">✓</span> {{ i18n "promiseTwo" }}</p>
-      <p class="anim-x-left"><span aria-hidden="true">✓</span> {{ i18n "promiseThree" }}</p>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-head">
+        <div class="hero-head-main">
+          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>{{ .Params.eyebrow }}</p>
+          <h1 id="hero-title">{{ .Params.headline | default .Title }}</h1>
+        </div>
+        <div class="hero-head-side anim-x-right">
+          <p class="hero-intro">{{ .Params.intro | default .Description }}</p>
+          <div class="hero-actions">
+            {{ with site.GetPage "/prices" }}
+              <a class="button button-primary" href="{{ .RelPermalink }}"><span class="button-label">{{ i18n "viewPrices" }}</span><span class="button-arrow" aria-hidden="true">↗</span></a>
+            {{ end }}
+            <a class="text-link" href="#contact">{{ i18n "contactCta" }} <span aria-hidden="true">↓</span></a>
+          </div>
+          <p class="hero-note"><span aria-hidden="true">✳</span> {{ i18n "heroNote" }}</p>
+        </div>
+      </div>
+      <p class="photo-chip"><span class="chip-dot" aria-hidden="true"></span><span>{{ i18n "heroImageCaption" }}</span></p>
     </div>
   </section>
+
+  <div class="hero-proof">
+    <p class="anim-x-left"><span aria-hidden="true">✓</span> {{ i18n "promiseOne" }}</p>
+    <p class="anim-x-left"><span aria-hidden="true">✓</span> {{ i18n "promiseTwo" }}</p>
+    <p class="anim-x-left"><span aria-hidden="true">✓</span> {{ i18n "promiseThree" }}</p>
+  </div>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      {{ range seq 4 }}
+        <span class="marquee-item">{{ i18n "promiseOne" }}</span>
+        <svg class="marquee-star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>
+        <span class="marquee-item">{{ i18n "promiseTwo" }}</span>
+        <svg class="marquee-star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>
+        <span class="marquee-item">{{ i18n "promiseThree" }}</span>
+        <svg class="marquee-star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>
+      {{ end }}
+    </div>
+  </div>
 
   <section class="services" id="services" aria-labelledby="services-title">
     <div class="spec-head">
@@ -51,78 +58,42 @@
       {{ range $index, $service := .Params.services }}
         <article class="spec-row">
           <span class="spec-index">0{{ add $index 1 }}</span>
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            {{ if eq $index 0 }}
+              <circle cx="21" cy="21" r="13"></circle>
+              <path d="m31 31 8 8M16 21h10m-5-5v10"></path>
+            {{ else if eq $index 1 }}
+              <rect x="9" y="10" width="30" height="22" rx="3"></rect>
+              <path d="M17 38h14m-7-6v6m-8-19h16m-16 6h10"></path>
+            {{ else }}
+              <rect x="15" y="15" width="18" height="18" rx="3"></rect>
+              <path d="M20 3v9m8-9v9m-8 24v9m8-9v9M3 20h9m-9 8h9m24-8h9m-9 8h9"></path>
+            {{ end }}
+          </svg>
           <div class="spec-body">
             <h3>{{ $service.title }}</h3>
             <p>{{ $service.description }}</p>
           </div>
-          <div class="spec-side">
-            <svg class="service-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-              {{ if eq $index 0 }}
-                <circle cx="21" cy="21" r="13"></circle>
-                <path d="m31 31 8 8M16 21h10m-5-5v10"></path>
-              {{ else if eq $index 1 }}
-                <rect x="9" y="10" width="30" height="22" rx="3"></rect>
-                <path d="M17 38h14m-7-6v6m-8-19h16m-16 6h10"></path>
-              {{ else }}
-                <rect x="15" y="15" width="18" height="18" rx="3"></rect>
-                <path d="M20 3v9m8-9v9m-8 24v9m8-9v9M3 20h9m-9 8h9m24-8h9m-9 8h9"></path>
-              {{ end }}
-            </svg>
-            <span class="spec-arrow" aria-hidden="true">↗</span>
-          </div>
+          <span class="spec-arrow" aria-hidden="true">↗</span>
         </article>
       {{ end }}
     </div>
   </section>
 
-  <section class="gallery" aria-labelledby="gallery-title">
-    <svg class="gallery-vector" viewBox="0 0 1200 360" fill="none" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M-30 250C110 170 250 320 400 235S640 130 780 220s230 30 450-80"></path>
-      <circle cx="120" cy="80" r="56" class="ghost"></circle>
-      <circle cx="1090" cy="280" r="72" class="ghost ghost-dashed"></circle>
-    </svg>
-    <div class="gallery-head">
-      <span class="gallery-marker" aria-hidden="true"></span>
-      <p class="section-kicker">{{ i18n "galleryKicker" }}</p>
-      <h2 id="gallery-title">{{ i18n "galleryHeading" }}</h2>
-    </div>
-    <div class="gallery-strip">
-      <figure class="gallery-item gallery-a anim-x-left">
-        {{ with resources.Get "images/pc-setup.jpg" }}
-          {{ $setupImage := . | fingerprint }}
-          <img src="{{ $setupImage.RelPermalink }}" alt="{{ i18n "gallerySetupAlt" }}" loading="lazy">
-        {{ end }}
-      </figure>
-      <figure class="gallery-item gallery-b anim-x-right">
-        {{ with resources.Get "images/pc-gaming.jpg" }}
-          {{ $gamingImage := . | fingerprint }}
-          <img src="{{ $gamingImage.RelPermalink }}" alt="{{ i18n "galleryGamingAlt" }}" loading="lazy">
-        {{ end }}
-      </figure>
-      <figure class="gallery-item gallery-c anim-x-left">
+  <section class="about" aria-labelledby="local-title">
+    <div class="about-grid">
+      <figure class="about-photo anim-x-left">
         {{ with resources.Get "images/pc-upgrade.jpg" }}
-          {{ $partsImage := . | fingerprint }}
-          <img src="{{ $partsImage.RelPermalink }}" alt="{{ i18n "componentsPhotoAlt" }}" loading="lazy">
+          {{ $aboutImage := .Resize "1200x" | fingerprint }}
+          <img src="{{ $aboutImage.RelPermalink }}" alt="{{ i18n "componentsPhotoAlt" }}" loading="lazy">
         {{ end }}
       </figure>
-    </div>
-    <p class="gallery-credit anim-x-left">
-      {{ i18n "photoCredit" }}:
-      <a href="https://unsplash.com/photos/a-person-working-on-a-laptop-with-a-screwdriver-Qkq3yuy0noE">{{ i18n "laptopPhoto" }}</a> ·
-      <a href="https://unsplash.com/photos/hand-installing-a-computer-processor-onto-a-motherboard-DQBHliTwIaU">{{ i18n "componentsPhoto" }}</a> ·
-      <a href="https://unsplash.com">unsplash.com</a>
-    </p>
-  </section>
-
-  <section class="local-intro" aria-labelledby="local-title">
-    <span class="location-mark" aria-hidden="true">
-      <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="14"></circle><circle cx="20" cy="20" r="6"></circle><path d="M20 1v8m0 22v8M1 20h8m22 0h8M6.5 6.5l5.7 5.7m15.6 15.6 5.7 5.7m0-27-5.7 5.7m-15.6 15.6-5.7 5.7"></path></svg>
-    </span>
-    <p class="section-kicker">{{ i18n "localKicker" }}</p>
-    <h2 id="local-title">{{ i18n "localHeading" }}</h2>
-    <div class="local-cols">
-      <p>{{ i18n "localDescriptionOne" }}</p>
-      <p>{{ i18n "localDescriptionTwo" }}</p>
+      <div class="about-body anim-x-right">
+        <p class="section-kicker">{{ i18n "localKicker" }}</p>
+        <h2 id="local-title">{{ i18n "localHeading" }}</h2>
+        <p>{{ i18n "localDescriptionOne" }}</p>
+        <p>{{ i18n "localDescriptionTwo" }}</p>
+      </div>
     </div>
   </section>
 
@@ -163,6 +134,36 @@
     </div>
   </section>
 
+  <section class="gallery" aria-labelledby="gallery-title">
+    <div class="gallery-inner">
+      <div class="gallery-head">
+        <span class="gallery-marker" aria-hidden="true"></span>
+        <p class="section-kicker">{{ i18n "galleryKicker" }}</p>
+        <h2 id="gallery-title">{{ i18n "galleryHeading" }}</h2>
+      </div>
+      <div class="gallery-strip">
+        <figure class="gallery-item gallery-a anim-x-left">
+          {{ with resources.Get "images/pc-setup.jpg" }}
+            {{ $setupImage := .Resize "1200x" | fingerprint }}
+            <img src="{{ $setupImage.RelPermalink }}" alt="{{ i18n "gallerySetupAlt" }}" loading="lazy">
+          {{ end }}
+        </figure>
+        <figure class="gallery-item gallery-b anim-x-right">
+          {{ with resources.Get "images/pc-gaming.jpg" }}
+            {{ $gamingImage := .Filter (images.Grayscale) (images.Sepia 62) | fingerprint }}
+            <img src="{{ $gamingImage.RelPermalink }}" alt="{{ i18n "galleryGamingAlt" }}" loading="lazy">
+          {{ end }}
+        </figure>
+      </div>
+      <p class="gallery-credit anim-x-left">
+        {{ i18n "photoCredit" }}:
+        <a href="https://unsplash.com/photos/a-person-working-on-a-laptop-with-a-screwdriver-Qkq3yuy0noE">{{ i18n "laptopPhoto" }}</a> ·
+        <a href="https://unsplash.com/photos/hand-installing-a-computer-processor-onto-a-motherboard-DQBHliTwIaU">{{ i18n "componentsPhoto" }}</a> ·
+        <a href="https://unsplash.com">unsplash.com</a>
+      </p>
+    </div>
+  </section>
+
   <section class="faq" id="faq" aria-labelledby="faq-title">
     <div class="faq-head anim-x-left">
       <p class="section-kicker">{{ i18n "faqKicker" }}</p>
@@ -190,19 +191,21 @@
   </section>
 
   <section class="contact" id="contact" aria-labelledby="contact-title">
-    <p class="section-kicker">{{ i18n "contactKicker" }}</p>
-    <h2 id="contact-title">{{ i18n "contactHeading" }}</h2>
-    <p class="contact-intro">{{ i18n "contactIntro" }}</p>
-    <div class="contact-details">
-      {{ with site.Params.contact.phone }}
-        <a href="tel:{{ . | replaceRE "[^+0-9]" "" }}"><span>{{ i18n "phoneLabel" }}</span><strong>{{ . }}</strong></a>
-      {{ end }}
-      {{ with site.Params.contact.email }}
-        <a href="mailto:{{ . }}"><span>{{ i18n "emailLabel" }}</span><strong>{{ . }}</strong></a>
-      {{ end }}
-      {{ if not (or site.Params.contact.phone site.Params.contact.email) }}
-        <p class="contact-unavailable">{{ i18n "contactUnavailable" }}</p>
-      {{ end }}
+    <div class="contact-inner">
+      <p class="section-kicker">{{ i18n "contactKicker" }}</p>
+      <h2 id="contact-title">{{ i18n "contactHeading" }}</h2>
+      <p class="contact-intro">{{ i18n "contactIntro" }}</p>
+      <div class="contact-details">
+        {{ with site.Params.contact.phone }}
+          <a href="tel:{{ . | replaceRE "[^+0-9]" "" }}"><span>{{ i18n "phoneLabel" }}</span><strong>{{ . }}</strong></a>
+        {{ end }}
+        {{ with site.Params.contact.email }}
+          <a href="mailto:{{ . }}"><span>{{ i18n "emailLabel" }}</span><strong>{{ . }}</strong></a>
+        {{ end }}
+        {{ if not (or site.Params.contact.phone site.Params.contact.email) }}
+          <p class="contact-unavailable">{{ i18n "contactUnavailable" }}</p>
+        {{ end }}
+      </div>
     </div>
   </section>
 {{ end }}
