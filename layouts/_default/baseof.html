@@ -55,7 +55,7 @@
       <p>{{ i18n "footerLine" }}</p>
       <p class="footer-links">
         <a href="{{ $home }}#services">{{ i18n "services" }}</a>
-        {{ with site.GetPage "/prices" }}<a href="{{ .RelPermalink }}">{{ i18n "prices" }}</a>{{ end }}
+        <a href="{{ $home }}#prices">{{ i18n "prices" }}</a>
         <a href="{{ $home }}#contact">{{ i18n "contact" }}</a>
       </p>
       <p>© {{ now.Year }} {{ site.Title }}</p>

@@ -1,8 +1,8 @@
 # A Place on the Web
 
-A small, responsive Hugo site with no theme or runtime dependencies. The site is built and published to GitHub Pages with GitHub Actions.
+A small, responsive single-page Hugo site with no theme or runtime dependencies. The site is built and published to GitHub Pages with GitHub Actions.
 
-The visual style follows the [hugo-scroll](https://zjedi.github.io/hugo-scroll/) design: a full-screen cover image, a sticky left-side section menu with scroll-spy highlighting (desktop only), full-height alternating light (`#f2efe8`) and dark (`#141515`) sections separated by the theme's signature triangle notches, and a compact centered footer. The shop's yellow accent (`#FED403`) replaces the theme's default highlight color. A small vanilla-JS scroll-spy (`assets/js/scrollspy.js`) replaces the theme's jQuery-based one. Headings and body text use the self-hosted **Golos Text** font (latin + cyrillic subsets in `static/fonts/`, SIL OFL 1.1, © Paratype), so no external font requests are made.
+The visual style follows the [hugo-scroll](https://zjedi.github.io/hugo-scroll/) design: a full-screen cover image, a sticky left-side section menu with scroll-spy highlighting (desktop only), full-height alternating light (`#f2efe8`) and dark (`#141515`) sections — Services, Prices, About, Process, Gallery, FAQ, Contact — separated by the theme's signature triangle notches, and a compact centered footer. The shop's yellow accent (`#FED403`) replaces the theme's default highlight color. A small vanilla-JS scroll-spy (`assets/js/scrollspy.js`) replaces the theme's jQuery-based one. Headings and body text use the self-hosted **Golos Text** font (latin + cyrillic subsets in `static/fonts/`, SIL OFL 1.1, © Paratype), so no external font requests are made.
 
 ## Run locally
 
@@ -18,7 +18,7 @@ Open the local URL printed by Hugo (usually <http://localhost:1313/>).
 
 - Change the site title and description in `hugo.toml`.
 - Add the shop's phone number and email under `[params.contact]` in `hugo.toml`.
-- Edit the homepage copy and front matter in `content/_index.md`.
+- Edit the homepage copy, services, and price list in the front matter of `content/_index.md` (and `content/_index.en.md` for English).
 - Adjust the visual style (colors, section rhythm) in `assets/css/main.css`.
 
 ## Publish with GitHub Pages

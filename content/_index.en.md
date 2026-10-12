@@ -1,9 +1,45 @@
 ---
 title: "PC repair in Varna"
 description: "PC and laptop diagnostics, repairs, and upgrades in Varna—with clear explanations, prices confirmed before work, and no unnecessary tech jargon."
+aliases: ["/en/prices/"]
 eyebrow: "PC repair in Varna"
 headline: "Computer acting up?\nLet’s take a look."
 intro: "Laptop and desktop repairs and upgrades, explained in plain English and without the extra drama."
+price_intro: "No tiny-print novel—just guide prices for the jobs we’re asked about most."
+price_note: "Prices are for labour. Parts and software licences are extra. For more complex repairs, we’ll confirm the total before starting. Software installation requires customer-provided licensed software."
+price_groups:
+  - title: "Diagnostics"
+    items:
+      - name: "PC or laptop that powers on"
+        price: "€15"
+      - name: "No power or no picture"
+        price: "€25"
+  - title: "Cleaning & maintenance"
+    items:
+      - name: "Office desktop PC"
+        price: "€25"
+      - name: "Gaming desktop PC"
+        price: "€35"
+      - name: "Office laptop"
+        price: "€28"
+      - name: "Gaming laptop"
+        price: "€35"
+  - title: "Components & builds"
+    items:
+      - name: "Desktop component installation"
+        price: "from €10"
+      - name: "Office PC assembly"
+        price: "€40"
+      - name: "Gaming PC assembly"
+        price: "€52"
+  - title: "Software & data"
+    items:
+      - name: "Operating system and driver installation"
+        price: "€29"
+      - name: "Data transfer (working drive, up to 50 GB)"
+        price: "€10"
+      - name: "Data transfer (damaged drive, up to 50 GB)"
+        price: "€20"
 services:
   - title: "Diagnostics & troubleshooting"
     description: "Freezing, restarting, or refusing to start? We’ll check the symptoms and look for the cause—not just blame the first error message."

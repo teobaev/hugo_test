@@ -294,6 +294,7 @@ a.fn-item.active { border-left-color: var(--highlight); opacity: 1; }
   --card-bg: #ffffff;
   --card-border: rgb(20 21 21 / 10%);
   --muted: #5d6a72;
+  --accent-text: #8f7400;
   position: relative;
   display: flex;
   min-height: 100vh;
@@ -309,6 +310,7 @@ a.fn-item.active { border-left-color: var(--highlight); opacity: 1; }
   --card-bg: #1d1f1f;
   --card-border: rgb(255 255 255 / 10%);
   --muted: #a7b0b5;
+  --accent-text: var(--highlight);
 }
 
 /* The triangular parts between sections */
@@ -385,7 +387,7 @@ a.fn-item.active { border-left-color: var(--highlight); opacity: 1; }
 .steps { display: grid; margin: 0; padding: 0; list-style: none; }
 .steps li { display: grid; grid-template-columns: 64px 1fr; gap: 14px; padding: 24px 0; border-top: 1px solid var(--card-border); }
 .steps li:first-child { border-top: 0; padding-top: 6px; }
-.steps li > span { color: var(--highlight); font-size: 1.7rem; font-weight: 800; letter-spacing: -.02em; line-height: 1; }
+.steps li > span { color: var(--accent-text); font-size: 1.7rem; font-weight: 800; letter-spacing: -.02em; line-height: 1; }
 .steps strong { font-size: .92rem; font-weight: 700; }
 .steps p { margin: 7px 0 0; color: var(--muted); font-size: .8rem; line-height: 1.75; }
 
@@ -437,9 +439,9 @@ a.fn-item.active { border-left-color: var(--highlight); opacity: 1; }
   min-width: 220px;
   gap: 7px;
   padding: 20px 26px;
-  border: 1px solid rgb(255 255 255 / 10%);
+  border: 1px solid rgb(255 255 255 / 14%);
   border-radius: 12px;
-  background: var(--section-dark-bg-color);
+  background: #1d1f1f;
   color: #fff;
   text-align: left;
   text-decoration: none;
@@ -499,16 +501,16 @@ a.fn-item.active { border-left-color: var(--highlight); opacity: 1; }
 .price-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .price-group { overflow: hidden; border: 1px solid rgb(20 21 21 / 10%); border-radius: 14px; background: #fff; transition: transform .3s var(--ease), box-shadow .3s; }
 .price-group:hover { transform: translateY(-3px); box-shadow: 0 18px 44px rgb(20 21 21 / 10%); }
-.price-group h2 { position: relative; margin: 0; padding: 19px 22px; border-bottom: 1px solid rgb(20 21 21 / 8%); font-size: .9rem; font-weight: 800; letter-spacing: .01em; }
-.price-group h2::after { height: 2px; position: absolute; right: 22px; bottom: -1px; left: 22px; background: var(--highlight); content: ""; opacity: .6; transform: scaleX(.14); transform-origin: left; transition: transform .45s var(--ease), opacity .3s; }
-.price-group:hover h2::after { opacity: 1; transform: scaleX(1); }
+.price-group h3 { position: relative; margin: 0; padding: 19px 22px; border-bottom: 1px solid rgb(20 21 21 / 8%); font-size: .9rem; font-weight: 800; letter-spacing: .01em; }
+.price-group h3::after { height: 2px; position: absolute; right: 22px; bottom: -1px; left: 22px; background: var(--highlight); content: ""; opacity: .6; transform: scaleX(.14); transform-origin: left; transition: transform .45s var(--ease), opacity .3s; }
+.price-group:hover h3::after { opacity: 1; transform: scaleX(1); }
 .price-list { padding: 0 22px; }
 .price-row { min-height: 54px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid rgb(20 21 21 / 8%); }
 .price-row:last-child { border-bottom: 0; }
 .price-row span { color: #45515a; font-size: .78rem; line-height: 1.65; }
 .price-row strong { flex: 0 0 auto; padding: 4px 11px; border-radius: 6px; background: var(--highlight); color: var(--highlight-contrast); font-size: .76rem; font-weight: 800; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .price-contact { display: flex; align-items: center; justify-content: space-between; gap: 26px; margin: 34px 0 0; padding: 30px 34px; border-radius: 16px; background: var(--section-dark-bg-color); color: #fff; }
-.price-contact h2 { margin: 0 0 8px; font-size: 1.25rem; font-weight: 800; letter-spacing: -.015em; }
+.price-contact h3 { margin: 0 0 8px; font-size: 1.25rem; font-weight: 800; letter-spacing: -.015em; }
 .price-contact p { max-width: 580px; margin: 0; color: #a7b0b5; font-size: .76rem; line-height: 1.75; }
 .price-contact .btn { flex: 0 0 auto; }
 

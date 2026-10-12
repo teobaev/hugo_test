@@ -1,5 +1,4 @@
 {{ define "main" }}
-  {{ $pricesPage := site.GetPage "/prices" }}
 
   {{/* Responsive cover background, converted to webp */}}
   {{ with resources.Get "images/laptop-repair.jpg" }}
@@ -30,7 +29,7 @@
       <h1 class="blog-title">{{ .Params.headline | default .Title }}</h1>
       <p class="blog-description">{{ .Params.intro | default .Description }}</p>
       <div class="cover-actions">
-        {{ with $pricesPage }}<a class="btn" href="{{ .RelPermalink }}">{{ i18n "viewPrices" }}</a>{{ end }}
+        <a class="btn" href="#prices">{{ i18n "viewPrices" }}</a>
         <a class="btn btn-ghost" href="#contact">{{ i18n "contactCta" }}</a>
       </div>
       <ul class="cover-points">
@@ -49,10 +48,10 @@
   <nav class="fixed-nav" aria-label="{{ i18n "navLabel" }}">
     <a class="fn-item" href="#site-head">{{ i18n "navStart" }}</a>
     <a class="fn-item" href="#services">{{ i18n "services" }}</a>
+    <a class="fn-item" href="#prices">{{ i18n "prices" }}</a>
     <a class="fn-item" href="#about">{{ i18n "navAbout" }}</a>
     <a class="fn-item" href="#how-it-works">{{ i18n "process" }}</a>
     <a class="fn-item" href="#gallery">{{ i18n "navGallery" }}</a>
-    {{ with $pricesPage }}<a class="fn-item" href="{{ .RelPermalink }}">{{ i18n "prices" }}</a>{{ end }}
     <a class="fn-item" href="#faq">{{ i18n "navFaq" }}</a>
     <a class="fn-item" href="#contact">{{ i18n "contact" }}</a>
   </nav>
@@ -94,8 +93,43 @@
     <div class="post-after" aria-hidden="true"></div>
   </div>
 
-  <!-- About (light) -->
+  <!-- Prices (light) -->
   <div class="post-holder">
+    <article id="prices" class="post post-wide" aria-labelledby="prices-title">
+      <div class="section-head">
+        <p class="section-kicker">{{ i18n "priceKicker" }}</p>
+        <h2 id="prices-title" class="section-heading">{{ i18n "prices" }}</h2>
+        <p class="section-intro">{{ .Params.price_intro }}</p>
+      </div>
+
+      <aside class="price-note">
+        <span class="note-icon" aria-hidden="true">i</span>
+        <div><strong>{{ i18n "priceNoteLabel" }}</strong><p>{{ .Params.price_note }}</p></div>
+      </aside>
+
+      <div class="price-groups">
+        {{ range .Params.price_groups }}
+          <section class="price-group">
+            <h3>{{ .title }}</h3>
+            <div class="price-list">
+              {{ range .items }}
+                <div class="price-row"><span>{{ .name }}</span><strong>{{ .price }}</strong></div>
+              {{ end }}
+            </div>
+          </section>
+        {{ end }}
+      </div>
+
+      <div class="price-contact">
+        <div><h3>{{ i18n "priceContactHeading" }}</h3><p>{{ i18n "priceContactText" }}</p></div>
+        <a class="btn" href="#contact">{{ i18n "contactCta" }}</a>
+      </div>
+    </article>
+    <div class="post-after" aria-hidden="true"></div>
+  </div>
+
+  <!-- About (dark) -->
+  <div class="post-holder dark">
     <article id="about" class="post post-wide" aria-labelledby="about-title">
       <div class="about-grid">
         <figure class="about-photo">
@@ -115,8 +149,8 @@
     <div class="post-after" aria-hidden="true"></div>
   </div>
 
-  <!-- Process (dark) -->
-  <div class="post-holder dark">
+  <!-- Process (light) -->
+  <div class="post-holder">
     <article id="how-it-works" class="post" aria-labelledby="process-title">
       <div class="section-head">
         <p class="section-kicker">{{ i18n "processKicker" }}</p>
@@ -132,8 +166,8 @@
     <div class="post-after" aria-hidden="true"></div>
   </div>
 
-  <!-- Gallery (light) -->
-  <div class="post-holder">
+  <!-- Gallery (dark) -->
+  <div class="post-holder dark">
     <article id="gallery" class="post post-wide" aria-labelledby="gallery-title">
       <div class="section-head">
         <p class="section-kicker">{{ i18n "galleryKicker" }}</p>
@@ -163,8 +197,8 @@
     <div class="post-after" aria-hidden="true"></div>
   </div>
 
-  <!-- FAQ (dark) -->
-  <div class="post-holder dark">
+  <!-- FAQ (light) -->
+  <div class="post-holder">
     <article id="faq" class="post" aria-labelledby="faq-title">
       <div class="section-head">
         <p class="section-kicker">{{ i18n "faqKicker" }}</p>
@@ -193,8 +227,8 @@
     <div class="post-after" aria-hidden="true"></div>
   </div>
 
-  <!-- Contact (light) -->
-  <div class="post-holder">
+  <!-- Contact (dark) -->
+  <div class="post-holder dark">
     <article id="contact" class="post contact-post" aria-labelledby="contact-title">
       <p class="section-kicker">{{ i18n "contactKicker" }}</p>
       <h2 id="contact-title" class="section-heading">{{ i18n "contactHeading" }}</h2>
