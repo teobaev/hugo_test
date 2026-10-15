@@ -60,12 +60,8 @@
   translation: "Careful work, clear answers"
 - id: photoCredit
   translation: "Photos via Unsplash"
-- id: laptopPhoto
-  translation: "laptop repair"
-- id: componentsPhoto
-  translation: "PC component"
 - id: componentsPhotoAlt
-  translation: "A hand fitting a processor to a motherboard"
+  translation: "Graphics cards on a dark surface"
 - id: processKicker
   translation: "A SIMPLE, CLEAR PROCESS"
 - id: processHeading
@@ -135,6 +131,6 @@
 - id: galleryHeading
   translation: "Careful hands, real machines."
 - id: gallerySetupAlt
-  translation: "A tidy desk setup with a modern monitor"
+  translation: "An open gaming PC glowing with RGB lighting"
 - id: galleryGamingAlt
-  translation: "A desktop computer glowing in magenta ambient light"
+  translation: "A Ryzen processor fitted into a motherboard"

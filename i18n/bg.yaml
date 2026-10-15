@@ -60,12 +60,8 @@
   translation: "Внимателен ремонт, ясни отговори"
 - id: photoCredit
   translation: "Снимки от Unsplash"
-- id: laptopPhoto
-  translation: "ремонт на лаптоп"
-- id: componentsPhoto
-  translation: "компютърен компонент"
 - id: componentsPhotoAlt
-  translation: "Ръка поставя процесор върху дънна платка"
+  translation: "Графични карти върху тъмна повърхност"
 - id: processKicker
   translation: "ПРОСТ И ЯСЕН ПРОЦЕС"
 - id: processHeading
@@ -135,6 +131,6 @@
 - id: galleryHeading
   translation: "Внимателни ръце, реални машини."
 - id: gallerySetupAlt
-  translation: "Подредено работно място с модерен монитор"
+  translation: "Отворен геймърски компютър с RGB подсветка"
 - id: galleryGamingAlt
-  translation: "Настолен компютър в неонова светлина"
+  translation: "Процесор Ryzen, монтиран върху дънна платка"

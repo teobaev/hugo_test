@@ -1,7 +1,7 @@
 {{ define "main" }}
 
   {{/* Responsive cover background, converted to webp */}}
-  {{ with resources.Get "images/laptop-repair.jpg" }}
+  {{ with resources.Get "images/hero-circuit.jpg" }}
     {{ $coverL := .Resize "2000x webp q85" }}
     {{ $coverM := .Resize "1280x webp q85" }}
     {{ $coverS := .Resize "800x webp q85" }}
@@ -14,6 +14,10 @@
 
   <!-- Welcome screen that scrolls out of view -->
   <header id="site-head" class="withCenteredImage">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-glow hero-glow-a" aria-hidden="true"></div>
+    <div class="hero-glow hero-glow-b" aria-hidden="true"></div>
+
     <div id="site-languages">
       {{ range .AllTranslations }}
         {{ if eq .Lang site.Language.Lang }}
@@ -44,9 +48,9 @@
     </a>
   </header>
 
-  <!-- Sticky left navigation menu -->
+  <!-- Floating top navigation (desktop) -->
   <nav class="fixed-nav" aria-label="{{ i18n "navLabel" }}">
-    <a class="fn-item" href="#site-head">{{ i18n "navStart" }}</a>
+    <a class="fn-brand" href="#site-head">{{ i18n "brandTop" }}</a>
     <a class="fn-item" href="#services">{{ i18n "services" }}</a>
     <a class="fn-item" href="#prices">{{ i18n "prices" }}</a>
     <a class="fn-item" href="#about">{{ i18n "navAbout" }}</a>
@@ -54,9 +58,18 @@
     <a class="fn-item" href="#gallery">{{ i18n "navGallery" }}</a>
     <a class="fn-item" href="#faq">{{ i18n "navFaq" }}</a>
     <a class="fn-item" href="#contact">{{ i18n "contact" }}</a>
+    <span class="fn-langs">
+      {{ range .AllTranslations }}
+        {{ if eq .Lang site.Language.Lang }}
+          <a class="active" href="{{ .RelPermalink }}" aria-current="page">{{ .Lang | upper }}</a>
+        {{ else }}
+          <a href="{{ .RelPermalink }}" lang="{{ .Lang }}" hreflang="{{ .Lang }}">{{ .Lang | upper }}</a>
+        {{ end }}
+      {{ end }}
+    </span>
   </nav>
 
-  <!-- Services (dark) -->
+  <!-- Services -->
   <div class="post-holder dark">
     <article id="services" class="post post-wide" aria-labelledby="services-title">
       <div class="section-head section-head-split">
@@ -90,10 +103,9 @@
         {{ end }}
       </div>
     </article>
-    <div class="post-after" aria-hidden="true"></div>
   </div>
 
-  <!-- Prices (light) -->
+  <!-- Prices -->
   <div class="post-holder">
     <article id="prices" class="post post-wide" aria-labelledby="prices-title">
       <div class="section-head">
@@ -125,15 +137,14 @@
         <a class="btn" href="#contact">{{ i18n "contactCta" }}</a>
       </div>
     </article>
-    <div class="post-after" aria-hidden="true"></div>
   </div>
 
-  <!-- About (dark) -->
+  <!-- About -->
   <div class="post-holder dark">
     <article id="about" class="post post-wide" aria-labelledby="about-title">
       <div class="about-grid">
         <figure class="about-photo">
-          {{ with resources.Get "images/pc-upgrade.jpg" }}
+          {{ with resources.Get "images/gpu-upgrade.jpg" }}
             {{ $aboutImage := .Resize "1200x" | fingerprint }}
             <img src="{{ $aboutImage.RelPermalink }}" alt="{{ i18n "componentsPhotoAlt" }}" loading="lazy">
           {{ end }}
@@ -146,10 +157,9 @@
         </div>
       </div>
     </article>
-    <div class="post-after" aria-hidden="true"></div>
   </div>
 
-  <!-- Process (light) -->
+  <!-- Process -->
   <div class="post-holder">
     <article id="how-it-works" class="post" aria-labelledby="process-title">
       <div class="section-head">
@@ -163,10 +173,9 @@
         <li><span aria-hidden="true">03</span><div><strong>{{ i18n "stepThreeTitle" }}</strong><p>{{ i18n "stepThreeText" }}</p></div></li>
       </ol>
     </article>
-    <div class="post-after" aria-hidden="true"></div>
   </div>
 
-  <!-- Gallery (dark) -->
+  <!-- Gallery -->
   <div class="post-holder dark">
     <article id="gallery" class="post post-wide" aria-labelledby="gallery-title">
       <div class="section-head">
@@ -175,29 +184,26 @@
       </div>
       <div class="gallery-strip">
         <figure class="gallery-item gallery-a">
-          {{ with resources.Get "images/pc-setup.jpg" }}
-            {{ $setupImage := .Resize "1200x" | fingerprint }}
-            <img src="{{ $setupImage.RelPermalink }}" alt="{{ i18n "gallerySetupAlt" }}" loading="lazy">
+          {{ with resources.Get "images/build-rgb.jpg" }}
+            {{ $buildImage := .Resize "1400x" | fingerprint }}
+            <img src="{{ $buildImage.RelPermalink }}" alt="{{ i18n "gallerySetupAlt" }}" loading="lazy">
           {{ end }}
         </figure>
         <figure class="gallery-item gallery-b">
-          {{ with resources.Get "images/pc-gaming.jpg" }}
-            {{ $gamingImage := .Filter (images.Grayscale) (images.Sepia 62) | fingerprint }}
-            <img src="{{ $gamingImage.RelPermalink }}" alt="{{ i18n "galleryGamingAlt" }}" loading="lazy">
+          {{ with resources.Get "images/cpu-install.jpg" }}
+            {{ $cpuImage := .Resize "1000x" | fingerprint }}
+            <img src="{{ $cpuImage.RelPermalink }}" alt="{{ i18n "galleryGamingAlt" }}" loading="lazy">
           {{ end }}
         </figure>
       </div>
       <p class="gallery-credit">
         {{ i18n "photoCredit" }}:
-        <a href="https://unsplash.com/photos/a-person-working-on-a-laptop-with-a-screwdriver-Qkq3yuy0noE">{{ i18n "laptopPhoto" }}</a> ·
-        <a href="https://unsplash.com/photos/hand-installing-a-computer-processor-onto-a-motherboard-DQBHliTwIaU">{{ i18n "componentsPhoto" }}</a> ·
         <a href="https://unsplash.com">unsplash.com</a>
       </p>
     </article>
-    <div class="post-after" aria-hidden="true"></div>
   </div>
 
-  <!-- FAQ (light) -->
+  <!-- FAQ -->
   <div class="post-holder">
     <article id="faq" class="post" aria-labelledby="faq-title">
       <div class="section-head">
@@ -224,10 +230,9 @@
         </details>
       </div>
     </article>
-    <div class="post-after" aria-hidden="true"></div>
   </div>
 
-  <!-- Contact (dark) -->
+  <!-- Contact -->
   <div class="post-holder dark">
     <article id="contact" class="post contact-post" aria-labelledby="contact-title">
       <p class="section-kicker">{{ i18n "contactKicker" }}</p>
@@ -245,7 +250,6 @@
         <p class="contact-unavailable">{{ i18n "contactUnavailable" }}</p>
       {{ end }}
     </article>
-    <div class="post-after" aria-hidden="true"></div>
   </div>
 
   {{ with resources.Get "js/scrollspy.js" }}
